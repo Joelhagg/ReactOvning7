@@ -7,8 +7,15 @@ import styled from "styled-components"
         toggleTodo(todo: Todo): void
     }
 
+    const Header = styled.h1`
+        color: green;
+        cursor: pointer;
+    `
+
     const DoneTodo = styled.div`
+        cursor: pointer;
         text-decoration: line-through;
+        color: red;
     `;
 
     const NotDoneTodo = styled.div``;
@@ -22,10 +29,12 @@ const PrintTodo = (props: IPrintTodoProps) => {
 
     return(
         <>
-                {props.todo.done ? (<DoneTodo onClick={handleClick}> {props.todo.text} </DoneTodo>)
-                :
-                (<NotDoneTodo onClick={handleClick}> {props.todo.text} </NotDoneTodo>)
-                }
+        <Header>
+            {props.todo.done ? (<DoneTodo onClick={handleClick}> {props.todo.text} </DoneTodo>)
+            :
+            (<NotDoneTodo onClick={handleClick}> {props.todo.text} </NotDoneTodo>)
+            }
+        </Header>
         </>
     )
 }
